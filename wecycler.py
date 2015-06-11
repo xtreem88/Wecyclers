@@ -2,6 +2,9 @@ from time import clock
 def check_repeated_number(number):
   repeated=False
   number=str(number)
+  if len(number) == 2:
+    if number[0] == number[1]:
+      return True
   for i in range(0,len(number)-2):
     if number[i] == number[i+1]:
       repeated = True
