@@ -11,16 +11,8 @@ def check_repeated_number(number):
     else:
       repeated = False
   return repeated
-start = clock()
-f=open('.input')
-numbers=int(f.readline().rstrip('\r\n'))
-i=1
-out=open('.output2','w')
-while i<=numbers:
-  read=f.readline().rstrip('\r\n')
-  line=read.split()
-  a=int(line[0])
-  b=int(line[1])
+
+def recycle(a,b):
   total=0
   c=[x for x in range(a,b+1)]
   for key,x in enumerate(c):
@@ -43,10 +35,23 @@ while i<=numbers:
                  ki+=1   
           else :
               break
+  return total
 
+start = clock()
+f=open('.input')
+numbers=int(f.readline().rstrip('\r\n'))
+i=1
+out=open('.output2','w')
+while i<=numbers:
+  read=f.readline().rstrip('\r\n')
+  line=read.split()
+  a=int(line[0])
+  b=int(line[1])
+  ans = recycle(a,b)
+  
 
-  print("Case #%s: %s"%(i,total))
-  out.write("Case #%s: %s \n"%(i,total))
+  print("Case #%s: %s"%(i,ans))
+  out.write("Case #%s: %s \n"%(i,ans))
   i+=1
 out.close()
 f.close()
