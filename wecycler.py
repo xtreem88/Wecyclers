@@ -1,5 +1,5 @@
 from time import clock
-def recycle(a,b):
+def wecycle(a,b):
   total=0
   multiplier = 1
   temp = a
@@ -39,7 +39,7 @@ while i<=numbers:
   a=int(line[0])
   b=int(line[1])
   #run the check recycle function
-  ans = recycle(a,b)
+  ans = wecycle(a,b)
   #print the output and store in the output file
   print("Case #%s: %s"%(i,ans))
   out.write("Case #%s: %s \n"%(i,ans))
