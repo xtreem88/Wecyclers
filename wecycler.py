@@ -17,7 +17,7 @@ def recycle(a,b):
   for t in range(a,b+1):
     for u in range(t+1,b+1):
       if str(t) in str(u)*2:
-        res+=1
+        total+=1
   return total
 
 start = clock()
@@ -33,7 +33,7 @@ while i<=numbers:
   ans = recycle(a,b)
   
 
-  print("Case #%s: %s"%(i,ans))
+  #print("Case #%s: %s"%(i,ans))
   out.write("Case #%s: %s \n"%(i,ans))
   i+=1
 out.close()
