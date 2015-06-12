@@ -1,13 +1,24 @@
 from time import clock
 def recycle(a,b):
   total=0
-  #start count at n = a and all the way to b (a<=n<m<=b)
+  multiplier = 1
+  temp = a
+  #get the multiplier for the a 
+  while (temp >= 10):
+    multiplier *= 10
+    temp /= 10  
+  #loop from a to b
   for n in range(a,b+1):
-    #start m at n+1 all the way to b (n<m<=b)
-    for m in range(n+1,b+1):
-      #if n is in m*2 eg(1234 in 3451234512) then its recycled
-      if str(n) in str(m)*2:
-        #add the count
+    #store n in m
+    m=n
+    while (True):
+      #shift the values by moving decimal points
+      m = (m / 10) + ((m % 10) * multiplier)
+      #if they are equal, then break
+      if (m == n):
+        break
+      #check the conditions
+      if (m > n and m <= b):
         total+=1
   return total
 #start the clock
@@ -29,7 +40,7 @@ while i<=numbers:
   b=int(line[1])
   #run the check recycle function
   ans = recycle(a,b)
-  #print the outpot and store in the output file
+  #print the output and store in the output file
   print("Case #%s: %s"%(i,ans))
   out.write("Case #%s: %s \n"%(i,ans))
   i+=1
