@@ -14,27 +14,10 @@ def check_repeated_number(number):
 
 def recycle(a,b):
   total=0
-  c=[x for x in range(a,b+1)]
-  for key,x in enumerate(c):
-    if check_repeated_number(x) == False:
-      for y in c[key+1:]:
-          n=str(x)
-          m=str(y)
-          if len(n)==len(m) and len(n)>1 and len(m)>1:
-             ki=1 
-             while ki <len(n):
-                 
-                 temp=n[-1:-(ki)-1:-1][::-1]+n[:-(ki)]
-                 if temp == n:
-                   break
-                 
-                 if temp[0]!='0':
-                  if temp==m:
-                     total+=1
-                     break
-                 ki+=1   
-          else :
-              break
+  for t in range(a,b+1):
+    for u in range(t+1,b+1):
+      if str(t) in str(u)*2:
+        res+=1
   return total
 
 start = clock()
